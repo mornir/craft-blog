@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div>
+      <h1>Ping: {{ ping }}</h1>
       <Logo />
       <h1 class="title">craft-blog</h1>
       <div class="links">
@@ -26,7 +27,18 @@
 </template>
 
 <script>
-export default {}
+import gql from 'graphql-tag'
+
+export default {
+  apollo: {
+    // Simple query that will update the 'hello' vue property
+    ping: gql`
+      query {
+        ping
+      }
+    `,
+  },
+}
 </script>
 
 <style>
